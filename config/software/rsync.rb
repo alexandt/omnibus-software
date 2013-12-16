@@ -25,8 +25,6 @@ source :url => "http://rsync.samba.org/ftp/rsync/src/rsync-3.0.9.tar.gz",
 
 relative_path "rsync-3.0.9"
 
-puts platform
-
 env =
   case platform
   when "solaris2"
