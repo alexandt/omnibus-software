@@ -40,10 +40,15 @@ env =
         "CFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include -static-libgcc",
         "LD_RUN_PATH" => "#{install_dir}/embedded/lib"
       }
-  else
-    raise "Sorry, #{Omnibus.config.solaris_compiler} is not a valid compiler selection."
-  end
-
+    else
+      raise "Sorry, #{Omnibus.config.solaris_compiler} is not a valid compiler selection."
+    end
+  when "mac_os_x"
+    {
+      "LDFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
+      "CFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
+      "LD_RUN_PATH" => "#{install_dir}/embedded/lib"
+    }
   else
     {
       "LDFLAGS" => "-L#{install_dir}/embedded/lib -I#{install_dir}/embedded/include",
